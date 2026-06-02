@@ -1,0 +1,759 @@
+<!-- infoUpadate.html -->
+ <!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Dashboard Info - My Pocket</title>
+    <script src="auth.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #ffffff;
+            color: #111827;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 15px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+            border: 1px solid #e5e7eb;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 8px;
+            color: #111827;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            margin: 25px 0 15px;
+            font-size: 20px;
+            color: #16a34a;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 8px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 7px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        input, select {
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            font-size: 15px;
+            outline: none;
+            background: #ffffff;
+        }
+
+        input:focus, select:focus {
+            border-color: #16a34a;
+            box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
+        }
+
+        .transaction-box {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            padding: 18px;
+            border-radius: 14px;
+            margin-bottom: 18px;
+        }
+
+        .transaction-box h3 {
+            margin-bottom: 15px;
+            color: #111827;
+        }
+
+        .btn {
+            width: 100%;
+            margin-top: 25px;
+            padding: 15px;
+            background: #16a34a;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #15803d;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 18px;
+            color: #16a34a;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                padding: 25px 18px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Update Your Dashboard</h1>
+        <p class="subtitle">Enter your financial information to personalize your dashboard.</p>
+
+        <h2 class="section-title">Monthly Information</h2>
+
+        <div class="form-grid">
+            <div class="form-group">
+                <label>Monthly Income</label>
+                <input type="number" id="monthlyIncome" placeholder="Example: 25000">
+            </div>
+
+            <div class="form-group">
+                <label>Monthly Expense</label>
+                <input type="number" id="monthlyExpense" placeholder="Example: 12000">
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2 class="section-title">Card Information</h2>
+
+        <div class="form-grid">
+            <div class="form-group">
+                <label>Card Holder Name</label>
+                <input type="text" id="cardHolderName" placeholder="Example: Begum Rokeya">
+            </div>
+
+            <div class="form-group">
+                <label>Card Type</label>
+                <select id="cardType">
+                    <option value="">Select Card Type</option>
+                    <option value="Visa">Visa</option>
+                    <option value="MasterCard">MasterCard</option>
+                    <option value="Debit Card">Debit Card</option>
+                    <option value="Credit Card">Credit Card</option>
+                    <option value="Student Card">Student Card</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Card Number</label>
+                <input type="text" id="cardNumber" placeholder="Example: 5435 2735 0037 0015">
+            </div>
+
+            <div class="form-group">
+                <label>Card Spending Limit</label>
+                <input type="number" id="cardSpendingLimit" placeholder="Example: 5000">
+            </div>
+        </div>
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2 class="section-title">Last 3 Transactions</h2>
+
+        <div class="transaction-box">
+            <h3>Transaction 1</h3>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Amount</label>
+                    <input type="number" id="t1Amount" placeholder="Example: 440">
+                </div>
+
+                <div class="form-group">
+                    <label>Category</label>
+                    <input type="text" id="t1Category" placeholder="Example: Food">
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" id="t1Description" placeholder="Example: Lunch">
+                </div>
+
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" id="t1Date">
+                </div>
+            </div>
+        </div>
+
+        <div class="transaction-box">
+            <h3>Transaction 2</h3>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Amount</label>
+                    <input type="number" id="t2Amount" placeholder="Example: 1200">
+                </div>
+
+                <div class="form-group">
+                    <label>Category</label>
+                    <input type="text" id="t2Category" placeholder="Example: Shopping">
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" id="t2Description" placeholder="Example: T-shirt">
+                </div>
+
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" id="t2Date">
+                </div>
+            </div>
+        </div>
+
+        <div class="transaction-box">
+            <h3>Transaction 3</h3>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Amount</label>
+                    <input type="number" id="t3Amount" placeholder="Example: 300">
+                </div>
+
+                <div class="form-group">
+                    <label>Category</label>
+                    <input type="text" id="t3Category" placeholder="Example: Transport">
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" id="t3Description" placeholder="Example: Bus fare">
+                </div>
+
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" id="t3Date">
+                </div>
+            </div>
+        </div>
+
+        <button class="btn" onclick="saveDashboardInfo()">Save & Go to Dashboard</button>
+
+        <a href="dashboard.html" class="back-link">Back to Dashboard</a>
+    </div>
+
+
+    <script>
+        function saveDashboardInfo() {
+            const monthlyIncome = document.getElementById("monthlyIncome").value.trim();
+            const monthlyExpense = document.getElementById("monthlyExpense").value.trim();
+
+            const cardHolderName = document.getElementById("cardHolderName").value.trim();
+            const cardType = document.getElementById("cardType").value;
+            const cardNumber = document.getElementById("cardNumber").value.trim();
+            const cardSpendingLimit = document.getElementById("cardSpendingLimit").value.trim();
+
+            const t1Amount = document.getElementById("t1Amount").value.trim();
+            const t1Category = document.getElementById("t1Category").value.trim();
+            const t1Description = document.getElementById("t1Description").value.trim();
+            const t1Date = document.getElementById("t1Date").value;
+
+            const t2Amount = document.getElementById("t2Amount").value.trim();
+            const t2Category = document.getElementById("t2Category").value.trim();
+            const t2Description = document.getElementById("t2Description").value.trim();
+            const t2Date = document.getElementById("t2Date").value;
+
+            const t3Amount = document.getElementById("t3Amount").value.trim();
+            const t3Category = document.getElementById("t3Category").value.trim();
+            const t3Description = document.getElementById("t3Description").value.trim();
+            const t3Date = document.getElementById("t3Date").value;
+
+            if (
+                !monthlyIncome || !monthlyExpense ||
+                !cardHolderName || !cardType || !cardNumber || !cardSpendingLimit ||
+                !t1Amount || !t1Category || !t1Description || !t1Date ||
+                !t2Amount || !t2Category || !t2Description || !t2Date ||
+                !t3Amount || !t3Category || !t3Description || !t3Date
+            ) {
+                alert("Please fill all information");
+                return;
+            }
+
+            localStorage.setItem("monthlyIncome", monthlyIncome);
+            localStorage.setItem("monthlyExpense", monthlyExpense);
+
+            localStorage.setItem("cardHolderName", cardHolderName);
+            localStorage.setItem("cardType", cardType);
+            localStorage.setItem("cardNumber", cardNumber);
+            localStorage.setItem("cardSpendingLimit", cardSpendingLimit);
+
+            const transactions = [
+                {
+                    amount: t1Amount,
+                    category: t1Category,
+                    description: t1Description,
+                    date: t1Date
+                },
+                {
+                    amount: t2Amount,
+                    category: t2Category,
+                    description: t2Description,
+                    date: t2Date
+                },
+                {
+                    amount: t3Amount,
+                    category: t3Category,
+                    description: t3Description,
+                    date: t3Date
+                }
+            ];
+
+            localStorage.setItem("lastTransactions", JSON.stringify(transactions));
+            localStorage.setItem("infoCompleted", "true");
+
+            alert("Information saved successfully!");
+            window.location.href = "dashboard.html";
+        }
+    </script>
+    
+
+</body>
+</html>
+-->
+
+<!-- infoUpadate.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Dashboard Info - My Pocket</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #ffffff;
+            color: #111827;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 15px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+            border: 1px solid #e5e7eb;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 8px;
+            color: #111827;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            margin: 35px 0 15px;
+            font-size: 20px;
+            color: #16a34a;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 8px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 7px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        input,
+        select {
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            font-size: 15px;
+            outline: none;
+            background: #ffffff;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #16a34a;
+            box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
+        }
+
+        .transaction-box {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            padding: 18px;
+            border-radius: 14px;
+            margin-bottom: 18px;
+        }
+
+        .transaction-box h3 {
+            margin-bottom: 15px;
+            color: #111827;
+        }
+
+        .btn {
+            width: 100%;
+            margin-top: 25px;
+            padding: 15px;
+            background: #16a34a;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #15803d;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 18px;
+            color: #16a34a;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                padding: 25px 18px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Update Your Dashboard</h1>
+        <p class="subtitle">Enter your financial information to personalize your dashboard.</p>
+
+        <h2 class="section-title">Monthly Information</h2>
+
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="monthlyIncome">Monthly Income</label>
+                <input type="number" id="monthlyIncome" placeholder="Example: 25000">
+            </div>
+
+            <div class="form-group">
+                <label for="monthlyExpense">Monthly Expense</label>
+                <input type="number" id="monthlyExpense" placeholder="Example: 12000">
+            </div>
+        </div>
+
+        <h2 class="section-title">Card Information</h2>
+
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="cardHolderName">Card Holder Name</label>
+                <input type="text" id="cardHolderName" placeholder="Example: Begum Rokeya">
+            </div>
+
+            <div class="form-group">
+                <label for="cardType">Card Type</label>
+                <select id="cardType">
+                    <option value="">Select Card Type</option>
+                    <option value="Visa">Visa</option>
+                    <option value="MasterCard">MasterCard</option>
+                    <option value="Debit Card">Debit Card</option>
+                    <option value="Credit Card">Credit Card</option>
+                    <option value="Student Card">Student Card</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="cardNumber">Card Number</label>
+                <input type="text" id="cardNumber" placeholder="Example: 5435 2735 0037 0015">
+            </div>
+
+            <div class="form-group">
+                <label for="cardSpendingLimit">Card Spending Limit</label>
+                <input type="number" id="cardSpendingLimit" placeholder="Example: 5000">
+            </div>
+        </div>
+
+        <h2 class="section-title">Last 3 Transactions</h2>
+
+        <div class="transaction-box">
+            <h3>Transaction 1</h3>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="t1Amount">Amount</label>
+                    <input type="number" id="t1Amount" placeholder="Example: 440">
+                </div>
+
+                <div class="form-group">
+                    <label for="t1Category">Category</label>
+                    <input type="text" id="t1Category" placeholder="Example: Food">
+                </div>
+
+                <div class="form-group">
+                    <label for="t1Description">Description</label>
+                    <input type="text" id="t1Description" placeholder="Example: Lunch">
+                </div>
+
+                <div class="form-group">
+                    <label for="t1Date">Date</label>
+                    <input type="date" id="t1Date">
+                </div>
+            </div>
+        </div>
+
+        <div class="transaction-box">
+            <h3>Transaction 2</h3>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="t2Amount">Amount</label>
+                    <input type="number" id="t2Amount" placeholder="Example: 1200">
+                </div>
+
+                <div class="form-group">
+                    <label for="t2Category">Category</label>
+                    <input type="text" id="t2Category" placeholder="Example: Shopping">
+                </div>
+
+                <div class="form-group">
+                    <label for="t2Description">Description</label>
+                    <input type="text" id="t2Description" placeholder="Example: T-shirt">
+                </div>
+
+                <div class="form-group">
+                    <label for="t2Date">Date</label>
+                    <input type="date" id="t2Date">
+                </div>
+            </div>
+        </div>
+
+        <div class="transaction-box">
+            <h3>Transaction 3</h3>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="t3Amount">Amount</label>
+                    <input type="number" id="t3Amount" placeholder="Example: 300">
+                </div>
+
+                <div class="form-group">
+                    <label for="t3Category">Category</label>
+                    <input type="text" id="t3Category" placeholder="Example: Transport">
+                </div>
+
+                <div class="form-group">
+                    <label for="t3Description">Description</label>
+                    <input type="text" id="t3Description" placeholder="Example: Bus fare">
+                </div>
+
+                <div class="form-group">
+                    <label for="t3Date">Date</label>
+                    <input type="date" id="t3Date">
+                </div>
+            </div>
+        </div>
+
+        <button class="btn" onclick="saveDashboardInfo()">Save & Go to Dashboard</button>
+
+        <a href="dashboard.html" class="back-link">Back to Dashboard</a>
+    </div>
+
+
+    <script>
+        window.onload = function () {
+            const userName = localStorage.getItem("userName") || "";
+
+            document.getElementById("monthlyIncome").value = localStorage.getItem("monthlyIncome") || "";
+            document.getElementById("monthlyExpense").value = localStorage.getItem("monthlyExpense") || "";
+            document.getElementById("cardHolderName").value = localStorage.getItem("cardHolderName") || userName;
+            document.getElementById("cardType").value = localStorage.getItem("cardType") || "";
+            document.getElementById("cardNumber").value = localStorage.getItem("cardNumber") || "";
+            document.getElementById("cardSpendingLimit").value = localStorage.getItem("cardSpendingLimit") || "";
+
+            const savedTransactions = localStorage.getItem("lastTransactions");
+
+            if (savedTransactions) {
+                const transactions = JSON.parse(savedTransactions);
+
+                if (transactions[0]) {
+                    document.getElementById("t1Amount").value = transactions[0].amount || "";
+                    document.getElementById("t1Category").value = transactions[0].category || "";
+                    document.getElementById("t1Description").value = transactions[0].description || "";
+                    document.getElementById("t1Date").value = transactions[0].date || "";
+                }
+
+                if (transactions[1]) {
+                    document.getElementById("t2Amount").value = transactions[1].amount || "";
+                    document.getElementById("t2Category").value = transactions[1].category || "";
+                    document.getElementById("t2Description").value = transactions[1].description || "";
+                    document.getElementById("t2Date").value = transactions[1].date || "";
+                }
+
+                if (transactions[2]) {
+                    document.getElementById("t3Amount").value = transactions[2].amount || "";
+                    document.getElementById("t3Category").value = transactions[2].category || "";
+                    document.getElementById("t3Description").value = transactions[2].description || "";
+                    document.getElementById("t3Date").value = transactions[2].date || "";
+                }
+            }
+        };
+
+        function saveDashboardInfo() {
+            const monthlyIncome = document.getElementById("monthlyIncome").value.trim();
+            const monthlyExpense = document.getElementById("monthlyExpense").value.trim();
+
+            const cardHolderName = document.getElementById("cardHolderName").value.trim();
+            const cardType = document.getElementById("cardType").value;
+            const cardNumber = document.getElementById("cardNumber").value.trim();
+            const cardSpendingLimit = document.getElementById("cardSpendingLimit").value.trim();
+
+            const t1Amount = document.getElementById("t1Amount").value.trim();
+            const t1Category = document.getElementById("t1Category").value.trim();
+            const t1Description = document.getElementById("t1Description").value.trim();
+            const t1Date = document.getElementById("t1Date").value;
+
+            const t2Amount = document.getElementById("t2Amount").value.trim();
+            const t2Category = document.getElementById("t2Category").value.trim();
+            const t2Description = document.getElementById("t2Description").value.trim();
+            const t2Date = document.getElementById("t2Date").value;
+
+            const t3Amount = document.getElementById("t3Amount").value.trim();
+            const t3Category = document.getElementById("t3Category").value.trim();
+            const t3Description = document.getElementById("t3Description").value.trim();
+            const t3Date = document.getElementById("t3Date").value;
+
+            if (
+                !monthlyIncome || !monthlyExpense ||
+                !cardHolderName || !cardType || !cardNumber || !cardSpendingLimit ||
+                !t1Amount || !t1Category || !t1Description || !t1Date ||
+                !t2Amount || !t2Category || !t2Description || !t2Date ||
+                !t3Amount || !t3Category || !t3Description || !t3Date
+            ) {
+                alert("Please fill all information");
+                return;
+            }
+
+            localStorage.setItem("monthlyIncome", monthlyIncome);
+            localStorage.setItem("monthlyExpense", monthlyExpense);
+
+            localStorage.setItem("cardHolderName", cardHolderName);
+            localStorage.setItem("cardType", cardType);
+            localStorage.setItem("cardNumber", cardNumber);
+            localStorage.setItem("cardSpendingLimit", cardSpendingLimit);
+
+            const transactions = [
+                {
+                    amount: t1Amount,
+                    category: t1Category,
+                    description: t1Description,
+                    date: t1Date
+                },
+                {
+                    amount: t2Amount,
+                    category: t2Category,
+                    description: t2Description,
+                    date: t2Date
+                },
+                {
+                    amount: t3Amount,
+                    category: t3Category,
+                    description: t3Description,
+                    date: t3Date
+                }
+            ];
+
+            localStorage.setItem("lastTransactions", JSON.stringify(transactions));
+            localStorage.setItem("infoCompleted", "true");
+            localStorage.setItem("loggedIn", "true");
+
+            window.location.href = "dashboard.html";
+        }
+    </script>
+
+</body>
+</html>

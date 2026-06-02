@@ -1,0 +1,38 @@
+<!--login-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - My Pocket</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+
+    <div class="auth-box">
+        <h1>Welcome Back</h1>
+        <p>Login to continue</p>
+
+        <input type="email" id="email" placeholder="Email">
+
+        <div class="password-box">
+            <input type="password" id="password" placeholder="Password">
+            <button type="button" onclick="togglePassword('password',this)">Show</button>
+        </div>
+
+        <div class="auth-row">
+            <label><input type="checkbox"> Remember me</label>
+            <a href="#">Forgot password?</a>
+        </div>
+
+        <button onclick="login()" class="auth-btn">Login</button>
+
+        <p class="bottom-text">
+            Don't have an account?
+            <a href="signup.html">Create new account</a>
+        </p>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>
